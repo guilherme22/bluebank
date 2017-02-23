@@ -1,13 +1,12 @@
 <style type="text/css">
     .debit{
-      font-size: 20px;
-      font-family: Arial;
       color: red;
     }
     .credit{
-      font-size: 20px;
-      font-family: Arial;
       color: blue;
+    }
+    .datetime{
+      color: black
     }
 
 </style>
@@ -21,16 +20,30 @@
 
 <div class="container" data-ng-if="vm.isLoggedIn()">
   <div class="row">
-    <div class="col-sm-12">
+      <div class="col-md-6">
+          <table class="table table-hover table-bordered">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Valores</th>
+            </tr>
+          </thead>
+          <tbody>
+             <tr data-ng-repeat="transaction in vm.transactions">
+                
+                <td class="datetime">{{transaction.createdAt | date: 'dd/MM/yyyy  HH:mm'}}</td>
+                <td class="valor" data-ng-class="{
+              'credit': (transaction.operation == 'credit'),
+              'debit': (transaction.operation == 'debit')
+            }" >{{transaction.value |  currency : 'R$' : 2}}</td>
 
-    </div>
-    <div class="col-sm-12" data-ng-repeat="transaction in vm.transactions">
-        <span data-ng-class="{
-          'glyphicon glyphicon-plus': (transaction.operation == 'credit'),
-          'glyphicon glyphicon-minus': (transaction.operation == 'debit'),
-          'credit': (transaction.operation == 'credit'),
-          'debit': (transaction.operation == 'debit')
-        }">{{transaction.value |  currency : 'R$' : 2}} </span>
-    </div>
+            </tr>
+          </tbody>
+           
+      </table> 
+
+
+      </div>
+  
   </div>
 </div>
