@@ -19,3 +19,21 @@
 
 Execute `gulp build` para buildar  e `gulp serve:dist` para um preview ( vai executar na porta 8080 )
 
+### Mocks Criados
+1. Guilherme Andrade -
+	Email: "guilhermeandradedesouza@gmail.com"
+	Senha: 123456
+	Agencia: 100
+	Conta: 1001
+
+2. Carlos Souza
+	Email: "carlos@gmail.com"
+	Senha: 123456
+	Agencia: 100
+	Conta: 2001
+
+##Regras para teste
+1. Usuário só consegue transferir para usuário da mesma agência
+2. Caso valor seja maior do que ele tem, não transfere.
+
+
