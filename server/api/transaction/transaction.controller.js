@@ -77,7 +77,7 @@ function transfer(transaction, req, res){
           throw new Error("Não é possível transferir para si mesmo.")
         }
         //caso o usuario não tenha saldo, deve cancelar a transação
-        if(fromAccount.saldo > transaction.value){
+        if(fromAccount.saldo >= transaction.value){
             fromAccount.set("saldo", fromAccount.get("saldo") - transaction.value)
              return fromAccount.save({transaction: t});
         }
