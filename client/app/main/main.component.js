@@ -33,14 +33,12 @@ export class MainController {
 
     this.$http.post('/api/transactions', this.transaction).then((response)=>{
           console.log(response);
+          location.reload()
           alert("transferencia realizada com sucesso.")
         
     })  
   }
 
-  deleteThing(thing) {
-    // this.$http.delete(`/api/things/${thing._id}`);
-  }
 }
 
 export default angular.module('bluebankApp.main', [uiRouter])
