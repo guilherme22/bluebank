@@ -1,0 +1,30 @@
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>Bem vindo a sua conta</h1>
+    <p class="lead" data-ng-if="$ctrl.isLoggedIn()">Esse é sua área para fazer transferência da sua conta BlueBank</p>
+<!--     <img src="assets/images/yeoman.png" alt="I'm Yeoman"> -->
+  </div>
+</header>
+
+<div class="container">
+  <div class="row" data-ng-if="$ctrl.isLoggedIn()">
+   <p class="lead">Saldo Atual: {{$ctrl.currentUser().account.saldo |  currency : 'R$ ' : 2}} </p>
+   <div class="form-group">
+      <label for="agencia">Agencia:</label>
+      <input type="number" class="form-control" id="agencia" data-ng-model="$ctrl.transaction.toAgency">
+   </div>
+
+    <div class="form-group">
+      <label for="agencia">Conta:</label>
+      <input type="number" class="form-control" id="conta" data-ng-model="$ctrl.transaction.toAccount">
+   </div>
+
+    <div class="form-group">
+      <label for="agencia">Valor:</label>
+      <input type="number" class="form-control" id="valor" data-ng-model="$ctrl.transaction.value">
+   </div>
+
+  <button class="btn btn-primary" data-ng-click="$ctrl.makeTransaction()">Transferir</button>
+
+  </div>
+</div>
